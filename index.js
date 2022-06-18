@@ -1,5 +1,5 @@
 //get the enviroment variables
-//require('dotenv').config()
+require('dotenv').config()
 
 // require needed node modules
 const express = require('express')
@@ -21,12 +21,12 @@ app.get('/', function (req, res) {
 app.get('/:color', function (req, res) {
     let myColor = req.params.color
     res.send(`
-    <body style="margin: 0;">
+        <body style="margin: 0;">
             <div style="border: 1px solid black; height: 10vh; background-color: $(myColor);">
                 <h2 style="text-align: center;">NAV BAR</h2>
             </div>
-        <h1 style="color: $(myColor);">$(myColor) Page</h1>
-    </body>
+            <h1 style="color: $(myColor);">$(myColor) Page</h1>
+        </body>
     `)
 })
 
@@ -54,12 +54,12 @@ app.get('/:color', function (req, res) {
 //})
 
 // Listen to a port number defined by a local enviroment variable (.env)
-// could not get the .env to work.  ask about later
+// got .env to work
 
-//app.listen(process.env.PORT, function () {
-//   console.log('Connected to Foxnet')
-//})
-
-app.listen(3000, function () {
-    console.log('Connected to Foxnet')
+app.listen(process.env.PORT, function () {
+   console.log('Connected to Foxnet')
 })
+
+//app.listen(3000, function () {
+//    console.log('Connected to Foxnet')
+//})
